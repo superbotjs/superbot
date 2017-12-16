@@ -1,17 +1,17 @@
 
-interface User { }
+type User = { }
 
-interface Message {
+type Message = {
   message_id: number,
   from?: User,
   text?: string,
 }
 
-interface Update {
+type Update = {
   message: Message,
 }
 
-interface ExtraMessageParams {
+type ExtraMessageParams = {
   parse_mode?: 'Markdown' | 'HTML',
   disable_web_page_preview?: true,
   disable_notification?: true,
@@ -21,7 +21,7 @@ interface ExtraMessageParams {
 let msgid = 0
 
 
-interface IContext {
+type IContext = {
   update: Update,
   message: Message,
 
@@ -30,7 +30,7 @@ interface IContext {
 
 /* eslint-disable class-methods-use-this */
 
-class Context implements IContext {
+class Context {
   update: Update
   message: Message
 
@@ -56,8 +56,9 @@ async function run(fn: Middleware<IContext>) {
 }
 
 // ----
-interface MeContext { me: string }
-function withMe<I: IContext>(fn: Middleware<MeContext & I>): Middleware<I> {
+type MeContext = { me: string }
+function withMe<I: IContext>(fn: Middleware<{ ...$Exact<I>, ...$Exact<MeContext> }>)
+: Middleware<I> {
   return (ctx) => {
     const nctx = { ...ctx, me: 'foo' }
 
@@ -65,8 +66,9 @@ function withMe<I: IContext>(fn: Middleware<MeContext & I>): Middleware<I> {
   }
 }
 
-interface AgeContext { age: number }
-function withAge<I: IContext>(fn: Middleware<AgeContext & I>): Middleware<I> {
+type AgeContext = { age: number }
+function withAge<I: IContext>(fn: Middleware<{ ...$Exact<I>, ...$Exact<AgeContext> }>)
+: Middleware<I> {
   return async (ctx) => {
     const nctx = { ...ctx, age: 23 }
 
