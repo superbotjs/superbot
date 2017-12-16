@@ -1,0 +1,17 @@
+[ignore]
+.*/lib
+.*/node_modules
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+all=true
+module.system.node.resolve_dirname=node_modules
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+[strict]

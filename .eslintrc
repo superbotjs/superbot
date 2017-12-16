@@ -1,0 +1,4 @@
+{
+  "extends": "atomix-base",
+  "parser": "babel-eslint"
+}

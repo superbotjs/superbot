@@ -1,0 +1,38 @@
+{
+  "name": "superbot",
+  "version": "0.1.0",
+  "description": "Superbot is a small library for telegram bots",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sergeysova/superbot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "core",
+    "nodejs",
+    "super"
+  ],
+  "author": "Sergey Sova <i.am@lestad.net> (https://lestad.top)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergeysova/superbot/issues"
+  },
+  "homepage": "https://github.com/sergeysova/superbot#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.35",
+    "@babel/core": "^7.0.0-beta.35",
+    "@babel/preset-flow": "^7.0.0-beta.35",
+    "@babel/preset-stage-2": "^7.0.0-beta.35",
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.13.1",
+    "eslint-config-atomix-base": "^5.1.1",
+    "flow-bin": "^0.61.0",
+    "nodemon": "^1.13.3"
+  }
+}
