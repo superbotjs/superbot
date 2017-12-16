@@ -1,4 +1,10 @@
 
+type $Spread<A, B> = /* ::{
+  ...$Exact<A>,
+  ...$Exact<B>,
+}
+type noop1<A, B> = */ A & B
+
 type User = { }
 
 type Message = {
@@ -57,7 +63,7 @@ async function run(fn: Middleware<IContext>) {
 
 // ----
 type MeContext = { me: string }
-function withMe<I: IContext>(fn: Middleware<{ ...$Exact<I>, ...$Exact<MeContext> }>)
+function withMe<I: IContext>(fn: Middleware<$Spread<I, MeContext>>)
 : Middleware<I> {
   return (ctx) => {
     const nctx = { ...ctx, me: 'foo' }
@@ -67,7 +73,7 @@ function withMe<I: IContext>(fn: Middleware<{ ...$Exact<I>, ...$Exact<MeContext>
 }
 
 type AgeContext = { age: number }
-function withAge<I: IContext>(fn: Middleware<{ ...$Exact<I>, ...$Exact<AgeContext> }>)
+function withAge<I: IContext>(fn: Middleware<$Spread<I, AgeContext>>)
 : Middleware<I> {
   return async (ctx) => {
     const nctx = { ...ctx, age: 23 }
