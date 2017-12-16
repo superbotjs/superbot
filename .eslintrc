@@ -1,4 +1,7 @@
 {
   "extends": "atomix-base",
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "globals": {
+    "$Exact": true
+  }
 }
