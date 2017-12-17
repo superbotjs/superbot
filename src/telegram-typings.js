@@ -1,4 +1,4 @@
-import { $Spread } from './types.h'
+import type { $Spread } from './types.h'
 
 
 export type User = {

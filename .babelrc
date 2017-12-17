@@ -2,5 +2,8 @@
   "presets": [
     "@babel/preset-flow",
     "@babel/preset-stage-2"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-modules-commonjs"
   ]
 }

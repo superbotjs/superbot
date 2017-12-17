@@ -28,6 +28,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.35",
     "@babel/core": "^7.0.0-beta.35",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.35",
     "@babel/preset-flow": "^7.0.0-beta.35",
     "@babel/preset-stage-2": "^7.0.0-beta.35",
     "babel-eslint": "^8.0.3",
@@ -37,6 +38,7 @@
     "nodemon": "^1.13.3"
   },
   "dependencies": {
+    "debug": "^3.1.0",
     "node-fetch": "^1.7.3"
   }
 }
