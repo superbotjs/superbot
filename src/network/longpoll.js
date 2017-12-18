@@ -55,6 +55,7 @@ export function createLongpollClient(server: string, timeout: number = 10000) {
   const errorHandler = (error: Error) => debug('longpoll error', error)
 
   return function startClient(botToken: string, handler: UpdateHandler) {
+    // get updates
     const request = () => fetch(`${server}/bot${botToken}/getUpdates?timeout=${timeout}`, { timeout })
       .then((response: Response): Promise<{ ok: boolean, result: Update[] }> => response.json())
       .then(answer => answer.ok ? answer.result : [])
