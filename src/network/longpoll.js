@@ -1,8 +1,7 @@
 import createDebug from 'debug'
 import fetch from 'node-fetch'
 import type { Response } from 'node-fetch'
-
-import type { Update } from '../telegram-typings'
+import type { Update } from 'telegram-typings'
 
 
 const debug = createDebug('superbot:network:longpoll')
@@ -58,7 +57,7 @@ export function createLongpollClient(server: string, timeout: number = 10000) {
     // get updates
     const request = () => fetch(`${server}/bot${botToken}/getUpdates?timeout=${timeout}`, { timeout })
       .then((response: Response): Promise<{ ok: boolean, result: Update[] }> => response.json())
-      .then(answer => answer.ok ? answer.result : [])
+      .then((answer) => answer.ok ? answer.result : [])
 
     const updateHandler = (updates: Update[]) => {
       updates.forEach(handler)

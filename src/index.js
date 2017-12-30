@@ -1,5 +1,5 @@
+import type { Update } from 'telegram-typings'
 import { createLongpollClient, SERVER } from './network/longpoll'
-import type { Update } from './telegram-typings'
 
 
 const start = createLongpollClient(SERVER.DEFAULT)
